@@ -1,0 +1,5 @@
+png("plot1.png",width = 480,height = 480)
+NEI <- readRDS("summarySCC_PM25.rds")
+totalEmissions = NEI %>% group_by(year) %>% summarise(pm2.5 = sum(Emissions))
+with(totalEmissions,plot(year,pm2.5,type = "o",pch = 20,ylab = "PM2.5",xlab = "Year",main = "PM2.5 Emissions in USA"))
+dev.off()
